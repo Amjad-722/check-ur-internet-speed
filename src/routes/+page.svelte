@@ -91,7 +91,7 @@
 			<div class="flex justify-center space-x-8">
 				<!-- GitHub -->
 				<a
-					href="https://github.com"
+					href="https://github.com/Amjad-722"
 					target="_blank"
 					rel="noopener noreferrer"
 					class="group flex items-center space-x-2 text-gray-400 transition-colors hover:text-white"
@@ -106,7 +106,7 @@
 
 				<!-- LinkedIn -->
 				<a
-					href="https://linkedin.com"
+					href="https://www.linkedin.com/in/amjadali72/"
 					target="_blank"
 					rel="noopener noreferrer"
 					class="group flex items-center space-x-2 text-gray-400 transition-colors hover:text-blue-400"
