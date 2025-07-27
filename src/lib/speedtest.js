@@ -37,9 +37,9 @@ export class SpeedTest {
 		const signal = this.abortController.signal;
 		
 		const testUrls = [
-			'https://speed.cloudflare.com/__down?bytes=10000000',  // 10MB
-			'https://speed.cloudflare.com/__down?bytes=25000000',  // 25MB
-			'https://speed.cloudflare.com/__down?bytes=50000000',  // 50MB
+			'https://speed.cloudflare.com/__down?bytes=10000000', 
+			'https://speed.cloudflare.com/__down?bytes=25000000', 
+			'https://speed.cloudflare.com/__down?bytes=50000000',  
 		];
 		
 		let totalBytes = 0;
