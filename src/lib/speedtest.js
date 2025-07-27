@@ -1,6 +1,3 @@
-/**
- * Speed Test Utility Functions
- */
 
 export class SpeedTest {
 	constructor() {
@@ -8,9 +5,7 @@ export class SpeedTest {
 		this.abortController = null;
 	}
 
-	/**
-	 * Test network latency/ping
-	 */
+	
 	async testLatency() {
 		const measurements = [];
 		const testUrl = 'https://www.google.com/favicon.ico';
@@ -32,19 +27,15 @@ export class SpeedTest {
 		
 		if (measurements.length === 0) return 0;
 		
-		// Return median to avoid outliers
 		measurements.sort((a, b) => a - b);
 		return Math.round(measurements[Math.floor(measurements.length / 2)]);
 	}
 
-	/**
-	 * Test download speed
-	 */
+	
 	async testDownload(onProgress = () => {}, duration = 10000) {
 		this.abortController = new AbortController();
 		const signal = this.abortController.signal;
 		
-		// Use multiple file sizes for better accuracy
 		const testUrls = [
 			'https://speed.cloudflare.com/__down?bytes=10000000',  // 10MB
 			'https://speed.cloudflare.com/__down?bytes=25000000',  // 25MB
@@ -79,7 +70,7 @@ export class SpeedTest {
 						totalBytes += value?.length || 0;
 						
 						const now = performance.now();
-						if (now - lastUpdate > 100) { // Update every 100ms
+						if (now - lastUpdate > 100) { 
 							const elapsed = now - startTime;
 							const speedMbps = (totalBytes * 8) / (elapsed * 1000);
 							onProgress(speedMbps);
@@ -106,17 +97,14 @@ export class SpeedTest {
 		return Math.max(0, finalSpeedMbps);
 	}
 
-	/**
-	 * Test upload speed
-	 */
+	
 	async testUpload(onProgress = () => {}, duration = 10000) {
 		this.abortController = new AbortController();
 		const signal = this.abortController.signal;
 		
-		// Create test data
-		const chunkSize = 1024 * 1024; // 1MB chunks
+		const chunkSize = 1024 * 1024; 
 		const testData = new Uint8Array(chunkSize);
-		// Fill with random data for more realistic test
+		
 		crypto.getRandomValues(testData);
 		
 		let totalBytes = 0;
@@ -128,7 +116,7 @@ export class SpeedTest {
 		}, duration);
 		
 		try {
-			// Multiple concurrent uploads
+			
 			const uploadPromises = Array(3).fill(0).map(async () => {
 				while (!signal.aborted) {
 					try {
@@ -171,9 +159,6 @@ export class SpeedTest {
 		return Math.max(0, finalSpeedMbps);
 	}
 
-	/**
-	 * Stop current test
-	 */
 	stop() {
 		if (this.abortController) {
 			this.abortController.abort();
@@ -181,15 +166,6 @@ export class SpeedTest {
 		this.isRunning = false;
 	}
 
-	/**
-	 * Get connection quality description
-	 */
-	static getConnectionQuality(downloadSpeed) {
-		if (downloadSpeed >= 100) return { label: 'Excellent', color: 'text-green-400' };
-		if (downloadSpeed >= 50) return { label: 'Very Good', color: 'text-green-300' };
-		if (downloadSpeed >= 25) return { label: 'Good', color: 'text-yellow-400' };
-		if (downloadSpeed >= 10) return { label: 'Fair', color: 'text-orange-400' };
-		if (downloadSpeed >= 1) return { label: 'Poor', color: 'text-red-400' };
-		return { label: 'Very Poor', color: 'text-red-500' };
-	}
+	
+	
 }
