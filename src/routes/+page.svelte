@@ -7,7 +7,7 @@
 	let maxSpeedReached = $state(false);
 
 	const speedTest = new SpeedTest();
-	const MAX_SPEED_LIMIT = 100; // Maximum speed in Mbps
+	const MAX_SPEED_LIMIT = 100; 
 
 	onMount(() => {
 		runSpeedTest();
@@ -28,7 +28,7 @@
 					currentSpeed = Math.round(speed * 10) / 10;
 					speedUnit = 'Mbps';
 				} else {
-					currentSpeed = Math.round((speed * 1000 * 8) / 10) / 10; // Convert to KBps
+					currentSpeed = Math.round((speed * 1000 * 8) / 10) / 10;
 					speedUnit = 'KBps';
 				}
 			});
@@ -42,12 +42,10 @@
 	<!-- Main Content -->
 	<div class="flex flex-1 items-center justify-center p-8">
 		<div class="relative">
-			<!-- Speed Display Container -->
 			<div
 				class="rounded-3xl border border-gray-700 bg-black/50 p-12 shadow-2xl shadow-green-500/20 backdrop-blur-sm"
 			>
 				<div class="text-center">
-					<!-- Speed Number -->
 					<div
 						class="text-8xl font-light {maxSpeedReached
 							? 'text-gray-500'
@@ -85,13 +83,11 @@
 		</div>
 	</div>
 
-	<!-- Footer -->
 	<footer class="border-t border-gray-800 p-8">
 		<div class="mx-auto max-w-4xl">
 			<div class="flex justify-center space-x-8">
-				<!-- GitHub -->
 				<a
-					href="https://github.com"
+					href="https://github.com/Amjad-722"
 					target="_blank"
 					rel="noopener noreferrer"
 					class="group flex items-center space-x-2 text-gray-400 transition-colors hover:text-white"
@@ -104,9 +100,8 @@
 					<span class="group-hover:underline">GitHub</span>
 				</a>
 
-				<!-- LinkedIn -->
 				<a
-					href="https://linkedin.com"
+					href="https://www.linkedin.com/in/amjadali72/"
 					target="_blank"
 					rel="noopener noreferrer"
 					class="group flex items-center space-x-2 text-gray-400 transition-colors hover:text-blue-400"
@@ -119,9 +114,8 @@
 					<span class="group-hover:underline">LinkedIn</span>
 				</a>
 
-				<!-- Upwork -->
 				<a
-					href="https://upwork.com"
+					href="https://www.upwork.com/freelancers/~01c4136c175ff03b3a"
 					target="_blank"
 					rel="noopener noreferrer"
 					class="group flex items-center space-x-2 text-gray-400 transition-colors hover:text-green-400"
@@ -134,7 +128,6 @@
 					<span class="group-hover:underline">Upwork</span>
 				</a>
 
-				<!-- Discord -->
 				<a
 					href="https://discord.com"
 					target="_blank"
@@ -150,7 +143,6 @@
 				</a>
 			</div>
 
-			<!-- Copyright -->
 			<div class="mt-6 text-center text-sm text-gray-500">
 				© 2025 Speed Test. Built with SvelteKit & Tailwind CSS
 			</div>
