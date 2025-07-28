@@ -19,7 +19,7 @@
 				if (speed >= MAX_SPEED_LIMIT) {
 					currentSpeed = MAX_SPEED_LIMIT;
 					speedUnit = 'Mbps';
-					maxSpeedReached = true;
+					maxSpeedReached = false;
 					speedTest.stop();
 					return;
 				}
@@ -40,8 +40,8 @@
 
 <div class="flex min-h-screen flex-col bg-gradient-to-br from-gray-900 via-black to-gray-800">
 	<!-- Main Content -->
-	<div class="flex flex-1 items-center justify-center p-8">
-		<div class="relative">
+	<div class="flex flex-2 items-center justify-center p-8">
+		<div class="relative items-center justify-center flex flex-col">
 			<div
 				class="rounded-3xl border border-gray-700 bg-black/50 p-12 shadow-2xl shadow-green-500/20 backdrop-blur-sm"
 			>
@@ -77,9 +77,29 @@
 					{/if}
 				</div>
 			</div>
-
+	
 			<!-- Glow Effect -->
 			<div class="absolute inset-0 -z-10 rounded-3xl bg-green-400/10 blur-xl"></div>
+			
+			
+			<div class="relative flex items-center justify-center bg-gray-700 w-20 rounded-2xl drop-shadow-2xl h-56 mt-2">
+				<!-- Left Arm -->
+				<div
+					class="absolute -ml-2 -left-28 top-12 h-6 w-30 translate-y-1/2 transform rounded-l-full bg-gray-600 shadow-lg shadow-green-500/20"
+				></div>
+				<!-- Right Arm -->
+				<div
+					class="absolute -right-30 top-12 h-6 w-30 translate-y-1/2 transform rounded-r-full bg-gray-600 shadow-lg shadow-green-500/20"
+				></div>
+				<!-- Left Leg -->
+				<div
+					class="absolute left-2 bottom-0 h-16 w-6 translate-y-16 transform rounded-b-full bg-gray-600 shadow-lg shadow-green-500/20"
+				></div>
+				<!-- Right Leg -->
+				<div
+					class="absolute right-2 bottom-0 h-16 w-6 translate-y-16 transform rounded-b-full bg-gray-600 shadow-lg shadow-green-500/20"
+				></div>
+			</div>
 		</div>
 	</div>
 
