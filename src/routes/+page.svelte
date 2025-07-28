@@ -82,7 +82,7 @@
 			<div class="absolute inset-0 -z-10 rounded-3xl bg-green-400/10 blur-xl"></div>
 			
 			
-			<div class="relative flex items-center justify-center bg-gray-700 w-20 rounded-2xl drop-shadow-2xl h-56 mt-2">
+			<div class="relative flex items-center justify-center bg-gray-700 w-20 rounded-t-2xl drop-shadow-2xl h-56  shadow-2xl shadow-green-500/20 backdrop-blur-sm">
 				<!-- Left Arm -->
 				<div
 					class="absolute -ml-2 -left-28 top-12 h-6 w-30 translate-y-1/2 transform rounded-l-full bg-gray-600 shadow-lg shadow-green-500/20"
