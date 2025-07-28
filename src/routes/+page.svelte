@@ -39,7 +39,6 @@
 </script>
 
 <div class="flex min-h-screen flex-col bg-gradient-to-br from-gray-900 via-black to-gray-800">
-	<!-- Main Content -->
 	<div class="flex flex-2 items-center justify-center p-8">
 		<div class="relative items-center justify-center flex flex-col">
 			<div
@@ -57,7 +56,6 @@
 					<div class="text-3xl font-light text-gray-300">
 						{speedUnit}
 					</div>
-					<!-- Status Indicator -->
 					{#if maxSpeedReached}
 						<div class="mt-6 text-lg text-gray-500">Maximum Speed Reached</div>
 					{:else}
