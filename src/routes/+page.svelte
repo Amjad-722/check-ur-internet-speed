@@ -1,5 +1,6 @@
 <script>
-    import { SpeedTest } from '$lib/speedtest.js';
+    import Navbar from '$lib/components/Navbar.svelte';
+import { SpeedTest } from '$lib/speedtest.js';
     import { onMount } from 'svelte';
 
     let currentSpeed = $state(0);
@@ -93,6 +94,7 @@
 </script>
 
 <div class="flex min-h-screen flex-col bg-gradient-to-br from-gray-900 via-black to-gray-800">
+	<Navbar onclick={refreshTest}/>
     <div class="flex flex-2 items-center justify-center p-8">
         <div class="relative items-center justify-center flex flex-col">
             <div class="rounded-3xl border border-gray-700 bg-black/50 p-12 shadow-2xl shadow-green-500/20 backdrop-blur-sm">
@@ -103,18 +105,10 @@
                     <!-- Speed Unit -->
                     <div class="text-3xl font-light text-gray-300">{speedUnit}</div>
                     
-                    {#if maxSpeedReached}
+                    
                         
-                        <button 
-                            onclick={refreshTest}
-                            class="mt-6 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-lg transition-colors duration-200 flex items-center space-x-2 mx-auto"
-                        >
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
-                            </svg>
-                            <span>Test Again</span>
-                        </button>
-                    {:else if isTestRunning}
+                        
+                    {#if isTestRunning}
                         <div class="mt-6 flex justify-center">
                             <div class="flex animate-pulse space-x-1">
                                 <div class="h-2 w-2 animate-bounce rounded-full bg-green-400"></div>
@@ -123,17 +117,7 @@
                             </div>
                         </div>
                        
-                    {:else if testCompleted}
-                        <div class="mt-6 text-lg text-gray-400">Test Completed</div>
-                        <button 
-                            onclick={refreshTest}
-                            class="mt-4 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-lg transition-colors duration-200 flex items-center space-x-2 mx-auto"
-                        >
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
-                            </svg>
-                            <span>Test Again</span>
-                        </button>
+                    
                     {/if}
                 </div>
             </div>
