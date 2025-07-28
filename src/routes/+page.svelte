@@ -104,8 +104,7 @@
                     <div class="text-3xl font-light text-gray-300">{speedUnit}</div>
                     
                     {#if maxSpeedReached}
-                        <div class="mt-6 text-lg text-gray-500">Maximum Speed Reached</div>
-                        <div class="mt-4 text-sm text-gray-400">Peak: {peakSpeed.toFixed(1)} Mbps</div>
+                        
                         <button 
                             onclick={refreshTest}
                             class="mt-6 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-lg transition-colors duration-200 flex items-center space-x-2 mx-auto"
