@@ -98,8 +98,14 @@ import { SpeedTest } from '$lib/speedtest.js';
 	<Navbar onRefresh={refreshTest}/>
     <div class="flex flex-2 items-center justify-center p-8">
         <div class="relative items-center justify-center flex flex-col">
+            {#if maxSpeedReached}
+                    <div class="mb-4">
+                        <h1 class="text-white text-3xl font-bold ">Your Internet speed is</h1>
+                    </div>
+                    {/if}
             <div class="rounded-3xl border border-gray-700 bg-black/50 p-12 shadow-2xl shadow-green-500/20 backdrop-blur-sm">
                 <div class="text-center">
+                    
                     <div class="text-8xl font-light {maxSpeedReached ? 'text-gray-500' : 'text-green-400'} mb-4 tracking-tight">
                         {currentSpeed.toFixed(1)}
                     </div>
