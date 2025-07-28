@@ -89,12 +89,13 @@ import { SpeedTest } from '$lib/speedtest.js';
     }
 
     function refreshTest() {
+        speedTest.stop(); 
         runSpeedTest();
     }
 </script>
 
 <div class="flex min-h-screen flex-col bg-gradient-to-br from-gray-900 via-black to-gray-800">
-	<Navbar onclick={refreshTest}/>
+	<Navbar onRefresh={refreshTest}/>
     <div class="flex flex-2 items-center justify-center p-8">
         <div class="relative items-center justify-center flex flex-col">
             <div class="rounded-3xl border border-gray-700 bg-black/50 p-12 shadow-2xl shadow-green-500/20 backdrop-blur-sm">
