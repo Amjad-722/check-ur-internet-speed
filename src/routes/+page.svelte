@@ -106,7 +106,7 @@ import { SpeedTest } from '$lib/speedtest.js';
             <div class="rounded-3xl border border-gray-700 bg-black/50 p-12 shadow-2xl shadow-green-500/20 backdrop-blur-sm">
                 <div class="text-center">
                     
-                    <div class="text-8xl font-light {maxSpeedReached ? 'text-gray-500' : 'text-green-400'} mb-4 tracking-tight">
+                    <div class="text-8xl font-light {maxSpeedReached ? 'text-white' : 'text-green-400'} mb-4 tracking-tight">
                         {currentSpeed.toFixed(1)}
                     </div>
                     <!-- Speed Unit -->
