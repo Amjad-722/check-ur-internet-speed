@@ -186,58 +186,7 @@
 				</div>
 			</div>
 
-			<!-- Modern Router/Modem Visual -->
-			<div class="relative mt-12 flex items-center justify-center">
-				<div class="glass relative h-16 w-24 overflow-hidden rounded-2xl">
-					<!-- Router body gradient -->
-					<div
-						class="absolute inset-0 rounded-2xl bg-gradient-to-br from-slate-700 via-slate-600 to-slate-800"
-					></div>
-
-					<!-- Connection cables -->
-					<div
-						class="absolute -left-8 top-1/2 h-2 w-8 -translate-y-1/2 transform rounded-l-full bg-gradient-to-r from-slate-500 to-slate-600"
-					></div>
-					<div
-						class="absolute -right-8 top-1/2 h-2 w-8 -translate-y-1/2 transform rounded-r-full bg-gradient-to-l from-slate-500 to-slate-600"
-					></div>
-
-					<!-- Antennas -->
-					<div
-						class="absolute -top-8 left-3 h-8 w-1 rounded-t-full bg-gradient-to-t from-slate-600 to-slate-400"
-					></div>
-					<div
-						class="absolute -top-10 right-3 h-10 w-1 rounded-t-full bg-gradient-to-t from-slate-600 to-slate-400"
-					></div>
-
-					<!-- Status lights -->
-					<div class="absolute left-1/2 top-2 flex -translate-x-1/2 transform space-x-1">
-						<div
-							class="h-2 w-2 rounded-full {isTestRunning
-								? 'animate-pulse bg-green-400'
-								: maxSpeedReached
-									? 'bg-blue-400'
-									: 'bg-yellow-400'}"
-						></div>
-						<div
-							class="h-2 w-2 rounded-full {maxSpeedReached ? 'bg-green-400' : 'bg-gray-500'}"
-						></div>
-					</div>
-
-					<!-- Signal waves animation -->
-					{#if isTestRunning}
-						<div class="absolute -top-4 left-1/2 -translate-x-1/2 transform">
-							<div
-								class="h-8 w-8 animate-ping rounded-full border-2 border-green-400 opacity-30"
-							></div>
-							<div
-								class="absolute left-1 top-1 h-6 w-6 animate-ping rounded-full border-2 border-blue-400 opacity-50"
-								style="animation-delay: 0.5s"
-							></div>
-						</div>
-					{/if}
-				</div>
-			</div>
+			
 		</div>
 	</div>
 
