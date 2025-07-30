@@ -14,7 +14,6 @@
 	function selectLanguage(lang) {
 		currentLanguage = lang.code;
 		isLanguageDropdownOpen = false;
-		// Here you would implement actual language switching logic
 		console.log('Language changed to:', lang.name);
 	}
 
@@ -146,7 +145,7 @@
 							{#each languages as lang}
 								<button
 									onclick={() => selectLanguage(lang)}
-									class="group flex w-full items-center space-x-3 px-4 py-3 text-left transition-all duration-200 hover:bg-white/10 {currentLanguage ===
+									class="group flex w-full items-center space-x-3 px-4 py-2 text-left transition-all duration-200 hover:bg-white/10 {currentLanguage ===
 									lang.code
 										? 'border-l-2 border-green-400 bg-white/5'
 										: ''}"
