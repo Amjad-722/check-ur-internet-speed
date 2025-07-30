@@ -1,5 +1,5 @@
 <script>
-    
+
 </script>
 
 
@@ -77,7 +77,7 @@
             <!-- Copyright -->
             <div class="border-t border-white/10 pt-6 text-center">
                 <p class="text-sm text-gray-400">
-                    © 2025 <span class="gradient-text font-semibold">SpeedTest Pro</span>
+                    © 2025 <span class="gradient-text font-semibold">SpeedTest</span>
                 </p>
                 <p class="mt-1 text-xs text-gray-500">Built with ❤️ using SvelteKit & Tailwind CSS</p>
             </div>
