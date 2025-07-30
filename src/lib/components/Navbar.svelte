@@ -62,7 +62,6 @@
 				</div>
 				<div class="flex flex-col">
 					<div class="gradient-text text-xl font-bold tracking-tight">SpeedTest</div>
-					<div class="text-xs font-medium text-gray-400">Pro Edition</div>
 				</div>
 			</div>
 
