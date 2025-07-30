@@ -29,7 +29,7 @@
 
 <nav class="glass fixed left-0 right-0 top-0 z-50 border-b border-white/10">
 	<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-		<div class="h-18 flex items-center justify-between">
+		<div class="h-16 flex items-center justify-between">
 			<!-- Enhanced Logo Section -->
 			<div class="group flex cursor-pointer items-center space-x-4">
 				<div class="relative">
@@ -137,7 +137,7 @@
 					<!-- Enhanced Language Dropdown -->
 					{#if isLanguageDropdownOpen}
 						<div
-							class="glass animate-in slide-in-from-top-2 absolute right-0 z-50 mt-3 w-56 rounded-2xl border border-white/20 py-3 shadow-2xl duration-200"
+							class="glass absolute right-0 z-50 mt-3 w-56 rounded-2xl border border-white/20 py-3 shadow-2xl transform transition-all duration-200 opacity-100 scale-100"
 						>
 							<div class="mb-2 border-b border-white/10 px-4 py-2">
 								<h3 class="text-sm font-semibold text-white">Select Language</h3>
@@ -179,5 +179,17 @@
 
 <!-- Click outside to close dropdown -->
 {#if isLanguageDropdownOpen}
-	<div class="fixed inset-0 z-40" onclick={() => (isLanguageDropdownOpen = false)}></div>
+	<div 
+		class="fixed inset-0 z-40" 
+		role="button"
+		tabindex="0"
+		aria-label="Close language dropdown"
+		onclick={() => (isLanguageDropdownOpen = false)}
+		onkeydown={(e) => {
+			if (e.key === 'Enter' || e.key === ' ') {
+				e.preventDefault();
+				isLanguageDropdownOpen = false;
+			}
+		}}
+	></div>
 {/if}
