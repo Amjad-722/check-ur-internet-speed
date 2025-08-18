@@ -111,7 +111,7 @@
 	  
     </div>
 	<div class={`mb-6 text-4xl font-serif font-bold tracking-tight 
-	${speed >= 1 ? 'text-white' : 'text-green'}
+	${currentSpeed >= 1 ? 'gradient-text' : 'text-green-400'}
          `}>{speedUnit}</div>
   </div>
 
