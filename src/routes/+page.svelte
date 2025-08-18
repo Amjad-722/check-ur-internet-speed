@@ -2,6 +2,7 @@
 	import Footer from '$lib/components/footer.svelte';
 	import Navbar from '$lib/components/Navbar.svelte';
 	import { SpeedTest } from '$lib/speedtest.js';
+	import { RefreshCcw } from '@lucide/svelte';
 	import { onMount } from 'svelte';
 
 	let currentSpeed = $state(0);
@@ -101,11 +102,12 @@
 	<Navbar onRefresh={refreshTest} />
 
 	<div class="relative z-10 flex flex-1 items-center justify-center w-full">
-		<div class="flex flex-1 items-center gap-8 justify-center w-full">
+		<div class="flex flex-1s items-center gap-8 justify-center w-full">
+			
     <div
       class={`mb-4 font-serif font-extrabold tracking-tight 
         text-[300vw] md:text-[15vw] 
-        ${maxSpeedReached ? 'gradient-text' : 'text-green-400'}`}
+        ${maxSpeedReached ? 'text-white' : 'text-green-400'}`}
     >
       {currentSpeed.toFixed(1)}
 	  
@@ -114,6 +116,7 @@
 	${currentSpeed >= 1 ? 'gradient-text' : 'text-green-400'}
          `}>{speedUnit}</div>
   </div>
+
 
 		
 	</div>

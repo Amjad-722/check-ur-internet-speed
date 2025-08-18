@@ -1,4 +1,5 @@
 
+
 export class SpeedTest {
 	constructor() {
 		this.isRunning = false;
@@ -8,7 +9,7 @@ export class SpeedTest {
 	
 	async testLatency() {
 		const measurements = [];
-		const testUrl = 'https://www.google.com/favicon.ico';
+		const testUrl = 'https://www.google.com/favicon.icon';
 		
 		for (let i = 0; i < 5; i++) {
 			try {

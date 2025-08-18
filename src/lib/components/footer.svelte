@@ -1,5 +1,5 @@
 <script>
-	import { Camera, Github, Linkedin } from '@lucide/svelte';
+	import { Camera, Github, Linkedin, MessageCircleHeart ,} from '@lucide/svelte';
 	const socialLinks = [
 		{
 			name: 'Github',
@@ -10,11 +10,10 @@
 			name: 'LinkedIn',
 			url: 'https://www.linkedin.com/in/amjadali72/',
 			icon: Linkedin
-		},
-		{
+		},{
 			name: 'Upwork',
 			url: 'https://www.upwork.com/freelancers/~01c4136c175ff03b3a',
-			icon: Github
+			icon: MessageCircleHeart
 		}
 	];
 </script>
