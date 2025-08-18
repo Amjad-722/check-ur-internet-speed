@@ -47,7 +47,7 @@
 					return;
 				}
 
-				if (speedHistory.length >= STABLE_SPEED_THRESHOLD) {				// Check for stable maximum speed (real maximum detection)
+				if (speedHistory.length >= STABLE_SPEED_THRESHOLD) {				
 
 					const recentSpeeds = speedHistory.slice(-STABLE_SPEED_THRESHOLD);
 					const avgSpeed = recentSpeeds.reduce((a, b) => a + b, 0) / recentSpeeds.length;
@@ -111,7 +111,7 @@
 	  
     </div>
 	<div class={`mb-6 text-4xl font-serif font-bold tracking-tight 
-	${speedUnit == "mbps"  ? 'text-white' : 'text-green'}
+	${speed >= 1 ? 'text-white' : 'text-green'}
          `}>{speedUnit}</div>
   </div>
 
