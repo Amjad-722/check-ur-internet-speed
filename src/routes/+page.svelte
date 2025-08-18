@@ -101,14 +101,18 @@
 	<Navbar onRefresh={refreshTest} />
 
 	<div class="relative z-10 flex flex-1 items-center justify-center w-full">
-		<div class="flex flex-1 items-center justify-center w-full">
+		<div class="flex flex-1 items-center gap-8 justify-center w-full">
     <div
       class={`mb-4 font-serif font-extrabold tracking-tight 
         text-[300vw] md:text-[15vw] 
         ${maxSpeedReached ? 'gradient-text' : 'text-green-400'}`}
     >
       {currentSpeed.toFixed(1)}
+	  
     </div>
+	<div class={`mb-6 text-4xl font-serif font-bold tracking-tight 
+	${speedUnit == "mbps"  ? 'text-white' : 'text-green'}
+         `}>{speedUnit}</div>
   </div>
 
 		
