@@ -69,7 +69,7 @@
 			<div class="flex items-center space-x-3">
 				<button
 					onclick={refreshTest}
-					class="glass group relative flex items-center gap-2 space-x-2 overflow-hidden rounded-xl border border-green-500/30 px-5 py-2.5 text-white transition-all duration-300 hover:border-green-400/50"
+					class="glass group relative flex items-center gap-2 space-x-2 overflow-hidden rounded-xl border border-green-500/30 px-5 py-2.5 gradient-text font-bold transition-all duration-300 hover:border-green-400/50"
 				>
 					<div
 						class="rounded-lg bg-gradient-to-br from-green-400 to-green-600 p-1 transition-transform duration-200 group-hover:scale-110"
@@ -80,8 +80,7 @@
 					Test Again
 				</button>
 
-				<!-- Enhanced Language Selector -->
-				<div class="relative">
+				<!-- <div class="relative">
 					<button
 						onclick={toggleLanguageDropdown}
 						class="glass group flex items-center space-x-3 rounded-xl border border-white/20 px-4 py-2.5 transition-all duration-300 hover:border-white/30 hover:bg-white/10"
@@ -116,7 +115,6 @@
 						</svg>
 					</button>
 
-					<!-- Enhanced Language Dropdown -->
 					{#if isLanguageDropdownOpen}
 						<div
 							class="glass absolute right-0 z-50 mt-3 w-56 scale-100 transform rounded-2xl border border-white/20 py-3 opacity-100 shadow-2xl transition-all duration-200"
@@ -153,7 +151,7 @@
 							{/each}
 						</div>
 					{/if}
-				</div>
+				</div> -->
 			</div>
 		</div>
 	</div>
