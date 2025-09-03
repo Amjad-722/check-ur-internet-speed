@@ -107,13 +107,13 @@
     <div
       class={`mb-4 font-serif font-extrabold tracking-tight 
         text-[300vw] md:text-[15vw] 
-        ${maxSpeedReached ? 'text-white' : 'text-green-400'}`}
+        ${maxSpeedReached ? 'text-red' : 'text-white'}`}
     >
       {currentSpeed.toFixed(1)}
 	  
     </div>
 	<div class={`mb-6 text-4xl font-serif font-bold tracking-tight 
-	${currentSpeed >= 1 ? 'gradient-text' : 'text-green-400'}
+	${currentSpeed >= 1 ? 'text-red' : 'text-white'}
          `}>{speedUnit}</div>
   </div>
 
