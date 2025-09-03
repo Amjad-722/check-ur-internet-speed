@@ -34,7 +34,7 @@
 						<svelte:component this={item.icon} size={24} class="text-white" />
 					</div>
 
-					<div class="font-medium text-white group-hover:text-gray-200">{item.name}</div>
+					<div class="font-medium gradient-text group-hover:text-gray-200">{item.name}</div>
 				</a>
 			{/each}
 		</div>
