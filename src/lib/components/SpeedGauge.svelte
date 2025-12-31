@@ -51,19 +51,12 @@
 			width={center * 2}
 			height={center * 2}
 			viewBox={`0 0 ${center * 2} ${center * 2}`}
-			style="transform: rotate(90deg);"
+			style="transform: rotate(0deg);"
 			class="overflow-visible drop-shadow-2xl"
 		>
 			<!-- Defs for gradients -->
 			<defs>
-				<linearGradient
-					id="gaugeGradient"
-					x1="0%"
-					y1="0%"
-					x2="100%"
-					y2="0%"
-					gradientTransform="rotate(90)"
-				>
+				<linearGradient id="gaugeGradient" x1="0%" y1="0%" x2="100%" y2="0%">
 					<stop offset="0%" stop-color="#06b6d4" />
 					<!-- Cyan (Start) -->
 					<stop offset="50%" stop-color="#8b5cf6" />
@@ -103,8 +96,9 @@
 				fill="none"
 				stroke="url(#gaugeGradient)"
 				stroke-width={strokeWidth}
-				stroke-dasharray={`${arcLength} ${circumference}`}
-				stroke-dashoffset={dashOffset}
+				pathLength="100"
+				stroke-dasharray={`${(totalAngle / 360) * 100} 100`}
+				stroke-dashoffset={(totalAngle / 360) * 100 * (1 - Math.min(speed, maxSpeed) / maxSpeed)}
 				stroke-linecap="round"
 				transform={`rotate(${startAngle} ${center} ${center})`}
 				class="transition-[stroke-dashoffset] duration-300 ease-out"
@@ -147,7 +141,7 @@
 					<svg width={radius - 20} height="24" viewBox="0 0 100 24" overflow="visible">
 						<!-- Tapered Triangle -->
 						<path
-							d="M 0 12 L 100 12 L 0 0 Z"
+							d="M 0 12 L 100 8 L 0 0 Z"
 							fill="white"
 							transform="scale(1, 1)"
 							class="shadow-white"
