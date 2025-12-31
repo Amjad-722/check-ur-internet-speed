@@ -48,8 +48,7 @@
 					return;
 				}
 
-				if (speedHistory.length >= STABLE_SPEED_THRESHOLD) {				
-
+				if (speedHistory.length >= STABLE_SPEED_THRESHOLD) {
 					const recentSpeeds = speedHistory.slice(-STABLE_SPEED_THRESHOLD);
 					const avgSpeed = recentSpeeds.reduce((a, b) => a + b, 0) / recentSpeeds.length;
 					const isStable = recentSpeeds.every(
@@ -95,30 +94,27 @@
 </script>
 
 <div
-	class="relative flex min-h-screen flex-col overflow-hidden bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900"
+	class="from-background via-surface to-background relative flex min-h-screen flex-col overflow-hidden bg-gradient-to-br"
 >
-
-
 	<Navbar onRefresh={refreshTest} />
 
-	<div class="relative z-10 flex flex-1 items-center justify-center w-full">
-		<div class="flex flex-1s items-center gap-8 justify-center w-full">
-			
-    <div
-      class={`mb-4 font-serif font-extrabold tracking-tight 
-        text-[300vw] md:text-[15vw] 
-        ${maxSpeedReached ? 'text-red' : 'text-white'}`}
-    >
-      {currentSpeed.toFixed(1)}
-	  
-    </div>
-	<div class={`mb-6 text-4xl font-serif font-bold tracking-tight 
-	${currentSpeed >= 1 ? 'text-red' : 'text-white'}
-         `}>{speedUnit}</div>
-  </div>
-
-
-		
+	<div class="relative z-10 flex w-full flex-1 items-center justify-center">
+		<div class="flex-1s flex w-full items-center justify-center gap-8">
+			<div
+				class={`mb-4 font-serif text-[300vw] font-extrabold 
+        tracking-tight md:text-[15vw] 
+        ${maxSpeedReached ? 'text-secondary' : 'text-white'}`}
+			>
+				{currentSpeed.toFixed(1)}
+			</div>
+			<div
+				class={`mb-6 font-serif text-4xl font-bold tracking-tight 
+	${currentSpeed >= 1 ? 'text-secondary' : 'text-white'}
+         `}
+			>
+				{speedUnit}
+			</div>
+		</div>
 	</div>
 	<Footer />
 </div>

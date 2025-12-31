@@ -1,21 +1,29 @@
 @import 'tailwindcss';
 
+@theme {
+  --color-primary: #6366f1;
+  --color-secondary: #0ea5e9;
+  --color-tertiary: #ec4899;
+  --color-background: #0f172a;
+  --color-surface: #1e293b;
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #1f2937;
+  background: var(--color-background);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #4b5563;
+  background: var(--color-surface);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #6b7280;
+  background: var(--color-primary);
 }
 
 /* Smooth animations */
@@ -25,14 +33,14 @@
 
 /* Glass morphism effect */
 .glass {
-  background: rgba(255, 255, 255, 0.05);
+  background: color-mix(in srgb, var(--color-surface) 50%, transparent);
   backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid color-mix(in srgb, var(--color-primary) 20%, transparent);
 }
 
 /* Gradient text */
 .gradient-text {
-  background: linear-gradient(135deg, #10b981, #3b82f6, #8b5cf6);
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary), var(--color-tertiary));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -50,8 +58,8 @@
 
 /* Pulse glow effect */
 @keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 20px rgba(16, 185, 129, 0.3); }
-  50% { box-shadow: 0 0 40px rgba(16, 185, 129, 0.6); }
+  0%, 100% { box-shadow: 0 0 20px color-mix(in srgb, var(--color-primary) 30%, transparent); }
+  50% { box-shadow: 0 0 40px color-mix(in srgb, var(--color-primary) 60%, transparent); }
 }
 
 .pulse-glow {
