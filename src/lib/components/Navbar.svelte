@@ -36,10 +36,10 @@
 				<div class="relative">
 					<!-- Logo background with glow effect -->
 					<div
-						class="absolute inset-0 rounded-xl bg-gradient-to-br from-green-400 to-blue-500 opacity-75 blur-sm transition-opacity group-hover:opacity-100"
+						class="from-primary to-secondary absolute inset-0 rounded-xl bg-gradient-to-br opacity-75 blur-sm transition-opacity group-hover:opacity-100"
 					></div>
 					<div
-						class="relative flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-green-400 via-blue-500 to-purple-600 shadow-lg transition-transform duration-300 group-hover:scale-105"
+						class="from-primary via-secondary to-tertiary relative flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br shadow-lg transition-transform duration-300 group-hover:scale-105"
 					>
 						<!-- Speed/Lightning icon -->
 						<svg
@@ -57,7 +57,7 @@
 						</svg>
 						<!-- Pulse ring animation -->
 						<div
-							class="absolute inset-0 animate-ping rounded-xl bg-gradient-to-br from-green-400 to-blue-500 opacity-20"
+							class="from-primary to-secondary absolute inset-0 animate-ping rounded-xl bg-gradient-to-br opacity-20"
 						></div>
 					</div>
 				</div>
@@ -69,10 +69,10 @@
 			<div class="flex items-center space-x-3">
 				<button
 					onclick={refreshTest}
-					class="glass group relative flex items-center gap-2 space-x-2 overflow-hidden rounded-xl border border-green-500/30 px-5 py-2.5 gradient-text font-bold transition-all duration-300 hover:border-green-400/50"
+					class="glass group border-secondary/30 gradient-text hover:border-secondary/50 relative flex items-center gap-2 space-x-2 overflow-hidden rounded-xl border px-5 py-2.5 font-bold transition-all duration-300"
 				>
 					<div
-						class="rounded-lg bg-gradient-to-br from-green-400 to-green-600 p-1 transition-transform duration-200 group-hover:scale-110"
+						class="from-secondary to-secondary/80 rounded-lg bg-gradient-to-br p-1 transition-transform duration-200 group-hover:scale-110"
 					>
 						<RefreshCcw />
 					</div>
@@ -129,7 +129,7 @@
 									onclick={() => selectLanguage(lang)}
 									class="group flex w-full items-center space-x-3 px-4 py-2 text-left transition-all duration-200 hover:bg-white/10 {currentLanguage ===
 									lang.code
-										? 'border-l-2 border-green-400 bg-white/5'
+										? 'border-l-2 border-secondary bg-white/5'
 										: ''}"
 								>
 									<div
@@ -139,13 +139,13 @@
 									</div>
 									<div class="flex flex-1 flex-col">
 										<span
-											class="text-sm font-medium text-white transition-colors group-hover:text-green-300"
+											class="text-sm font-medium text-white transition-colors group-hover:text-secondary"
 											>{lang.name}</span
 										>
 										<span class="text-xs text-gray-400">{lang.code}</span>
 									</div>
 									{#if currentLanguage === lang.code}
-										<div class="h-2 w-2 rounded-full bg-green-400"></div>
+										<div class="h-2 w-2 rounded-full bg-secondary"></div>
 									{/if}
 								</button>
 							{/each}
