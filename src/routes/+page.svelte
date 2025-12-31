@@ -1,6 +1,7 @@
 <script>
 	import Footer from '$lib/components/footer.svelte';
 	import Navbar from '$lib/components/Navbar.svelte';
+	import SpeedGauge from '$lib/components/SpeedGauge.svelte';
 	import { SpeedTest } from '$lib/speedtest.js';
 	import { RefreshCcw } from '@lucide/svelte';
 	import { onMount } from 'svelte';
@@ -98,22 +99,13 @@
 >
 	<Navbar onRefresh={refreshTest} />
 
-	<div class="relative z-10 flex w-full flex-1 items-center justify-center">
-		<div class="flex-1s flex w-full items-center justify-center gap-8">
-			<div
-				class={`mb-4 font-serif text-[300vw] font-extrabold 
-        tracking-tight md:text-[15vw] 
-        ${maxSpeedReached ? 'text-secondary' : 'text-white'}`}
-			>
-				{currentSpeed.toFixed(1)}
-			</div>
-			<div
-				class={`mb-6 font-serif text-4xl font-bold tracking-tight 
-	${currentSpeed >= 1 ? 'text-secondary' : 'text-white'}
-         `}
-			>
-				{speedUnit}
-			</div>
+	<div class="relative z-10 flex min-h-[50vh] w-full flex-1 items-center justify-center">
+		<div class="flex w-full scale-110 flex-col items-center justify-center md:scale-125">
+			<SpeedGauge speed={currentSpeed} unit={speedUnit} maxSpeed={MAX_SPEED_LIMIT} />
+
+			{#if maxSpeedReached}
+				<div class="text-secondary mt-8 animate-bounce text-xl font-bold">Speed Test Complete!</div>
+			{/if}
 		</div>
 	</div>
 	<Footer />
