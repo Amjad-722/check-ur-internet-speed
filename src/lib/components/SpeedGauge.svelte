@@ -2,26 +2,18 @@
 	let { speed = 0, maxSpeed = 100, unit = 'Mbps' } = $props();
 
 	// Gauge configuration
-	const radius = 120;
+	const radius = 160;
 	const strokeWidth = 20;
 	const center = radius + strokeWidth;
 	const circumference = 2 * Math.PI * radius;
-	const startAngle = -220; // Starting angle in degrees (bottom-leftish)
+	const startAngle = -230; // Starting angle in degrees (bottom-leftish)
 	const endAngle = 40; // Ending angle in degrees (bottom-rightish)
 	const totalAngle = endAngle - startAngle;
 
-	// Calculate rotation for the needle
 	let rotation = $derived(startAngle + (Math.min(speed, maxSpeed) / maxSpeed) * totalAngle);
 
-	// Calculate stroke dash array for the progress arc
-	// We only show a portion of the circle
 	const arcLength = (totalAngle / 360) * circumference;
-	// The dashoffset needs to be calculated in a way that fills from left to right.
-	// SVG stroke-dasharray is simple, but filling an arc can be tricky.
-	// If we define the dasharray as [arcLength, circumference], the stroke covers the visible arc.
-	// To 'empty' it, we increase dashoffset.
-	// Full gauge: offset = 0
-	// Empty gauge: offset = arcLength
+
 	const progress = $derived(Math.min(speed, maxSpeed) / maxSpeed);
 	const dashOffset = $derived(arcLength * (1 - progress));
 
@@ -31,7 +23,7 @@
 		const angle = startAngle + (tickValue / 100) * totalAngle;
 		const radian = (angle * Math.PI) / 180;
 		// Inner radius for ticks
-		const r = radius - 35;
+		const r = radius - 50;
 		const x = center + r * Math.cos(radian);
 		const y = center + r * Math.sin(radian);
 		return { x, y, angle };
@@ -128,41 +120,17 @@
 		</svg>
 
 		<!-- Needle Container -->
+
 		<div
 			class="pointer-events-none absolute top-0 left-0 flex h-full w-full items-center justify-center"
 		>
-			<!-- Rotating Wrapper (Pivot Point) -->
-			<div
-				class="relative h-0 w-0 transition-transform duration-100 ease-linear"
-				style="transform: rotate({rotation}deg);"
-			>
-				<!-- Refined Needle Design: Fixed Base -->
-				<div
-					class="absolute top-0 left-0 -translate-y-1/2 drop-shadow-[0_0_5px_rgba(255,255,255,0.8)]"
-				>
-					<svg
-						width={radius}
-						height="40"
-						viewBox="0 0 100 40"
-						overflow="visible"
-						style="transform: translateY(-50%);"
-					>
-						<!-- Glow Defs specific to Needle -->
-						<defs>
-							<linearGradient id="needleGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-								<stop offset="0%" stop-color="#ffffff" />
-								<stop offset="100%" stop-color="#e2e8f0" />
-							</linearGradient>
-						</defs>
-
-						<!-- The Needle Shape -->
-						<path d="M 2 20 L 90 20 L 2 20 Z" stroke="white" stroke-width="0" />
-						<path d="M 0 17 L 90 20 L 0 23 Z" fill="url(#needleGradient)" />
-
-						<!-- Central Pivot Circle -->
-						<circle cx="0" cy="20" r="5" fill="white" stroke="#cbd5e1" stroke-width="2" />
-					</svg>
-				</div>
+			<div class="flex flex-col items-baseline justify-center">
+				<span class="text-4xl font-bold tracking-tighter text-white drop-shadow-md">
+					{speed.toFixed(2)}
+				</span>
+				<span class="text-sm font-bold tracking-widest text-gray-400 uppercase opacity-80">
+					{unit}
+				</span>
 			</div>
 		</div>
 
@@ -180,11 +148,6 @@
 
 	<!-- Bottom Digital Readout (Moved from Center) -->
 	<div class="mt-4 flex flex-col items-center justify-center">
-		<div class="flex items-baseline justify-center">
-			<span class="text-4xl font-bold tracking-tighter text-white drop-shadow-md">
-				{speed.toFixed(2)}
-			</span>
-		</div>
 		<div class="text-sm font-bold tracking-widest text-gray-400 uppercase opacity-80">
 			{unit}
 		</div>
