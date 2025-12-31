@@ -1,13 +1,12 @@
 <script>
 	let { speed = 0, maxSpeed = 100, unit = 'Mbps' } = $props();
 
-	// Gauge configuration
 	const radius = 160;
 	const strokeWidth = 20;
 	const center = radius + strokeWidth;
 	const circumference = 2 * Math.PI * radius;
-	const startAngle = -230; // Starting angle in degrees (bottom-leftish)
-	const endAngle = 40; // Ending angle in degrees (bottom-rightish)
+	const startAngle = -230;
+	const endAngle = 40;
 	const totalAngle = endAngle - startAngle;
 
 	let rotation = $derived(startAngle + (Math.min(speed, maxSpeed) / maxSpeed) * totalAngle);
@@ -17,12 +16,10 @@
 	const progress = $derived(Math.min(speed, maxSpeed) / maxSpeed);
 	const dashOffset = $derived(arcLength * (1 - progress));
 
-	// Create tick marks
 	const ticks = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
 	function getTickPosition(tickValue) {
 		const angle = startAngle + (tickValue / 100) * totalAngle;
 		const radian = (angle * Math.PI) / 180;
-		// Inner radius for ticks
 		const r = radius - 50;
 		const x = center + r * Math.cos(radian);
 		const y = center + r * Math.sin(radian);
@@ -118,8 +115,6 @@
 				transform={`rotate(${startAngle} ${center} ${center})`}
 			/>
 		</svg>
-
-		<!-- Needle Container -->
 
 		<div
 			class="pointer-events-none absolute top-0 left-0 flex h-full w-full items-center justify-center"
