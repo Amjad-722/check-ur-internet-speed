@@ -51,7 +51,6 @@
 			width={center * 2}
 			height={center * 2}
 			viewBox={`0 0 ${center * 2} ${center * 2}`}
-			style="transform: rotate(0deg);"
 			class="overflow-visible drop-shadow-2xl"
 		>
 			<!-- Defs for gradients -->
@@ -69,6 +68,15 @@
 					<stop offset="0%" stop-color="#4c1d95" stop-opacity="0.6" />
 					<stop offset="100%" stop-color="#4c1d95" stop-opacity="0" />
 				</radialGradient>
+
+				<!-- Needle Glow Filter -->
+				<filter id="needleGlow" x="-50%" y="-50%" width="200%" height="200%">
+					<feGaussianBlur stdDeviation="2" result="coloredBlur" />
+					<feMerge>
+						<feMergeNode in="coloredBlur" />
+						<feMergeNode in="SourceGraphic" />
+					</feMerge>
+				</filter>
 			</defs>
 
 			<!-- Inner Glow Circle -->
@@ -128,31 +136,31 @@
 				class="relative h-0 w-0 transition-transform duration-100 ease-linear"
 				style="transform: rotate({rotation}deg);"
 			>
-				<!-- Triangle Needle -->
-				<!-- Pointing Right because rotation starts from 3 o'clock base roughly. 
-                     We need to align it so at 0 deg rotation it aligns with the math. 
-                     Wait, my rotation logic assumes 0 deg is right. 
-                     I will draw a needle pointing RIGHT.
-                -->
+				<!-- Refined Needle Design: Fixed Base -->
 				<div
-					class="absolute top-0 left-0 -translate-y-1/2 drop-shadow-lg"
-					style="transform: translateX(10px);"
+					class="absolute top-0 left-0 -translate-y-1/2 drop-shadow-[0_0_5px_rgba(255,255,255,0.8)]"
 				>
-					<svg width={radius - 20} height="24" viewBox="0 0 100 24" overflow="visible">
-						<!-- Tapered Triangle -->
-						<path
-							d="M 0 12 L 100 12 L 0 0 Z"
-							fill="white"
-							transform="scale(1, 1)"
-							class="shadow-white"
-						/>
-						<!-- Since I want a symmetric triangle pointing right:
-                             Base at x=0, Tip at x=width.
-                             (0, 8) -> (width, 12) -> (0, 16)
-                        -->
-						<path d={`M 0 8 L ${radius - 30} 12 L 0 16 Z`} fill="white" />
-						<!-- Circle at base -->
-						<circle cx="0" cy="12" r="6" fill="white" stroke="#e0e7ff" stroke-width="2" />
+					<svg
+						width={radius}
+						height="40"
+						viewBox="0 0 100 40"
+						overflow="visible"
+						style="transform: translateY(-50%);"
+					>
+						<!-- Glow Defs specific to Needle -->
+						<defs>
+							<linearGradient id="needleGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+								<stop offset="0%" stop-color="#ffffff" />
+								<stop offset="100%" stop-color="#e2e8f0" />
+							</linearGradient>
+						</defs>
+
+						<!-- The Needle Shape -->
+						<path d="M 2 20 L 90 20 L 2 20 Z" stroke="white" stroke-width="0" />
+						<path d="M 0 17 L 90 20 L 0 23 Z" fill="url(#needleGradient)" />
+
+						<!-- Central Pivot Circle -->
+						<circle cx="0" cy="20" r="5" fill="white" stroke="#cbd5e1" stroke-width="2" />
 					</svg>
 				</div>
 			</div>
