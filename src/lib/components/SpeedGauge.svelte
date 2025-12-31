@@ -141,7 +141,7 @@
 					<svg width={radius - 20} height="24" viewBox="0 0 100 24" overflow="visible">
 						<!-- Tapered Triangle -->
 						<path
-							d="M 0 12 L 100 8 L 0 0 Z"
+							d="M 0 12 L 100 12 L 0 0 Z"
 							fill="white"
 							transform="scale(1, 1)"
 							class="shadow-white"
